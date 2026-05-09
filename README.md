@@ -16,3 +16,13 @@ Then run the setup flow in your agent (if prompted) and use the installed skills
 
 - [`qa`](./qa/SKILL.md): Generates a practical QA checklist from conversation goals.
 - [`to-subtasks`](./to-subtasks/SKILL.md): Converts finalized planning context into an implementation-ready, dependency-ordered subtask list with optional per-subtask test pairing.
+
+## Recommended workflow
+
+When starting a new idea, use this flow:
+
+1. Run [mattpocock's `/grill-me`](https://skills.sh/mattpocock/skills/grill-me) to pressure-test and refine the idea.
+2. Run `/to-subtasks` to produce an ordered implementation plan.
+3. Run `do-subtasks`.
+4. Implement the generated subtasks with Agent 1, one subtask at a time.
+5. Run `/qa` to generate a manual QA plan and test the result.
