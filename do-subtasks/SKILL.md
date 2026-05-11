@@ -19,6 +19,8 @@ description: Executes exactly one approved subtask at a time, then returns a con
 - When the human tells you to continue, begin work immediately.
 - Do not ask for confirmation.
 - Do not restate or confirm which task you are starting.
+- If the human asks for the next subtask and there are no remaining agreed-upon subtasks, do not implement anything.
+- In that case, tell the human that all agreed-upon subtasks have already been implemented.
 
 ## Output Rules
 
