@@ -1,6 +1,9 @@
-# Personal AI Skills
+# Rediche's Workflow Skills
 
-Small collection of reusable AI skills I use across projects.
+[![skills.sh](https://skills.sh/b/rediche/skills)](https://skills.sh/rediche/skills)
+
+Simple, focused agent skills for planning, implementation flow, and QA.
+Inspired by Matt Pocock's skills workflow, kept intentionally simple and condensed.
 
 ## Install
 
@@ -24,6 +27,6 @@ When starting a new idea, use this flow:
 
 1. Run [mattpocock's `/grill-me`](https://skills.sh/mattpocock/skills/grill-me) to pressure-test and refine the idea.
 2. Run `/to-subtasks` to produce an ordered implementation plan.
-3. Run `do-subtasks`.
+3. Run `/do-subtasks`.
 4. Implement the generated subtasks with Agent 1, one subtask at a time.
 5. Run `/qa` to generate a manual QA plan and test the result.
