@@ -3,7 +3,7 @@
 [![skills.sh](https://skills.sh/b/rediche/skills)](https://skills.sh/rediche/skills)
 
 Simple, focused agent skills for planning, implementation flow, and QA.
-Inspired by Matt Pocock's skills workflow, kept intentionally simple and condensed.
+Inspired by [Matt Pocock's skills workflow](https://github.com/mattpocock/skills), kept intentionally simple and condensed.
 
 ## Install
 
