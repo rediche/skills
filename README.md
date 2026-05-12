@@ -28,5 +28,5 @@ When starting a new idea, use this flow:
 1. Run [mattpocock's `/grill-me`](https://skills.sh/mattpocock/skills/grill-me) to pressure-test and refine the idea.
 2. Run `/to-subtasks` to produce an ordered implementation plan.
 3. Run `/do-subtasks`.
-4. Implement the generated subtasks with Agent 1, one subtask at a time.
+4. Implement the generated subtasks with Agent, one subtask at a time.
 5. Run `/qa` to generate a manual QA plan and test the result.
