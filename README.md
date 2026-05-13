@@ -17,9 +17,9 @@ Then run the setup flow in your agent (if prompted) and use the installed skills
 
 ## Skills
 
+- [`to-subtasks`](./to-subtasks/SKILL.md): Converts finalized planning context into an implementation-ready, dependency-ordered subtask list with optional per-subtask test pairing.
 - [`do-subtasks`](./do-subtasks/SKILL.md): Executes exactly one approved subtask at a time, then returns a conventional commit message suggestion for human review and commit.
 - [`qa`](./qa/SKILL.md): Generates a practical QA checklist from conversation goals.
-- [`to-subtasks`](./to-subtasks/SKILL.md): Converts finalized planning context into an implementation-ready, dependency-ordered subtask list with optional per-subtask test pairing.
 
 ## Recommended workflow
 
