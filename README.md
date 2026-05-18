@@ -19,6 +19,7 @@ Then run the setup flow in your agent (if prompted) and use the installed skills
 
 - [`to-subtasks`](./to-subtasks/SKILL.md): Converts finalized planning context into an implementation-ready, dependency-ordered subtask list with optional per-subtask test pairing.
 - [`do-subtasks`](./do-subtasks/SKILL.md): Executes exactly one approved subtask at a time, then returns a conventional commit message suggestion for human review and commit.
+- [`to-pr`](./to-pr/SKILL.md): Implements agreed subtasks into a new branch, commits each subtask, pushes when complete, and opens a GitHub PR.
 - [`qa`](./qa/SKILL.md): Generates a practical QA checklist from conversation goals.
 
 ## Recommended workflow
@@ -27,6 +28,5 @@ When starting a new idea, use this flow:
 
 1. Run [mattpocock's `/grill-me`](https://skills.sh/mattpocock/skills/grill-me) to pressure-test and refine the idea.
 2. Run `/to-subtasks` to produce an ordered implementation plan.
-3. Run `/do-subtasks`.
-4. Implement the generated subtasks with Agent, one subtask at a time.
-5. Run `/qa` to generate a manual QA plan and test the result.
+3. Run `/do-subtasks` for manual one-subtask-at-a-time implementation, or `/to-pr` to implement all subtasks into a new branch and GitHub PR.
+4. Run `/qa` to generate a manual QA plan and test the result.
