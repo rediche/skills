@@ -50,8 +50,6 @@ For each agreed subtask, in order:
 - Target the same branch used as the base branch.
 - Use a human-readable PR title based on the project goal, such as `Add comments to blog posts`.
 - Do not use conventional commit style for the PR title.
-- Attempt to assign the current git user as a reviewer.
-- If self-review assignment is rejected by GitHub, continue and report that reviewer assignment was skipped.
 
 ## PR description
 
@@ -65,7 +63,6 @@ Include these sections in the PR body:
 
 - Return the GitHub PR URL when finished.
 - Include a concise recap of implemented subtasks.
-- State whether reviewer assignment succeeded or was skipped.
 - If blocked, explain the blocker and the exact next action needed.
 
 ## Guardrails
