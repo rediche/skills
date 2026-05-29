@@ -50,6 +50,7 @@ For each agreed subtask, in order:
 - Target the same branch used as the base branch.
 - Use a human-readable PR title based on the project goal, such as `Add comments to blog posts`.
 - Do not use conventional commit style for the PR title.
+- If the PR resolves an open GitHub issue, include a closing keyword in the PR body (for example, `Closes #123`) so the issue closes automatically when the PR is merged.
 
 ## PR description
 
