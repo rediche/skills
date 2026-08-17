@@ -9,21 +9,21 @@ description: Generate a concise, user-facing changelog from meaningful changes i
 
 Generate changelog text only. Do not create or edit a changelog file.
 
-Before inspecting history, ask the user what the changelog should cover:
-
-- Date range, defaulting to the past 7 days.
-- Contributor scope, defaulting to the current GitHub user.
-
-Use the user's explicit date range and contributor scope when provided. Keep the
-default repository and branch as the current repository and current branch.
+Do not prompt the user for the date range or contributor scope when they are not
+provided. Default to the past 7 days and the current Git user. Use the user's
+explicit date range and contributor scope when provided. Keep the default
+repository and branch as the current repository and current branch.
 
 ## Workflow
 
-1. Identify the current GitHub user with `gh api user --jq .login`.
+1. Identify the current Git user from the repository configuration and history.
+   If GitHub identity is needed for API resolution, identify the current GitHub
+   user with `gh api user --jq .login`.
 2. Identify the current repository and branch from the local git checkout.
 3. Inspect matching local history with `git log` and `git show`, including both
    regular commits and merge commits. Restrict results to the selected dates,
-   branch, and contributor scope.
+   branch, and contributor scope. When no date range is specified, use the
+   previous 7 days; when no contributor is specified, use the current Git user.
 4. When the default GitHub-user filter cannot be reliably matched to local
    author names or emails, use the repository commit API to resolve that
    GitHub login to commit SHAs, then inspect those commits with local git.
