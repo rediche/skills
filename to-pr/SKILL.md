@@ -46,9 +46,9 @@ For each agreed subtask, in order:
 6. Use a conventional commit message with no scope and no body: `<type>: <short description>`.
 
 ### 5) Push and PR
-- After all subtasks are committed and the full relevant test suite passes, push the branch.
-- Create the PR with the GitHub CLI using `gh`.
-- Target the same branch used as the base branch.
+- After all subtasks are committed and the full relevant test suite passes, push the work branch with `git push --set-upstream origin <work-branch>`.
+- Create the PR with `gh pr create --base <base-branch> --head <work-branch>` and include the project-specific title and body.
+- After creation, run `gh pr view --json url,baseRefName,headRefName` to verify the PR target and retrieve its URL.
 - Use a human-readable PR title based on the project goal, such as `Add comments to blog posts`.
 - Do not use conventional commit style for the PR title.
 - If the PR resolves an open GitHub issue, include a closing keyword in the PR body (for example, `Closes #123`) so the issue closes automatically when the PR is merged.
