@@ -27,8 +27,8 @@ def timestamp(milliseconds: int | None) -> str:
 
 
 def list_sessions(connection: sqlite3.Connection, args: argparse.Namespace) -> None:
-    filters = []
-    values: list[str] = []
+    filters = ["s.id <> ?"]
+    values: list[str] = [args.exclude_session]
     if args.directory:
         filters.append("s.directory = ?")
         values.append(str(Path(args.directory).expanduser().resolve()))
@@ -61,7 +61,9 @@ def part_text(data: dict) -> str | None:
     return None
 
 
-def show_session(connection: sqlite3.Connection, session_id: str) -> None:
+def show_session(connection: sqlite3.Connection, session_id: str, excluded_session: str) -> None:
+    if session_id == excluded_session:
+        raise ValueError("Refusing to retrieve the session running this retrospective.")
     session = connection.execute(
         "SELECT id, title, directory, time_created FROM session WHERE id = ?", (session_id,)
     ).fetchone()
@@ -96,11 +98,13 @@ def main() -> int:
     parser.add_argument("--database", type=Path, default=DEFAULT_DB, help=f"SQLite database (default: {DEFAULT_DB})")
     commands = parser.add_subparsers(dest="command", required=True)
     listing = commands.add_parser("list", help="List recent sessions")
+    listing.add_argument("--exclude-session", required=True, help="Session ID running this retrospective; it will be omitted")
     listing.add_argument("--directory", help="Filter by exact working directory")
     listing.add_argument("--project", help="Filter by project name, ID, or worktree")
     listing.add_argument("--limit", type=int, default=30, help="Maximum sessions to list (default: 30)")
     showing = commands.add_parser("show", help="Print a session transcript")
     showing.add_argument("session_id", help="Session ID from the list command")
+    showing.add_argument("--exclude-session", required=True, help="Session ID running this retrospective; retrieval is refused for it")
     args = parser.parse_args()
     if args.command == "list" and args.limit < 1:
         parser.error("--limit must be at least 1")
@@ -109,7 +113,7 @@ def main() -> int:
             if args.command == "list":
                 list_sessions(connection, args)
             else:
-                show_session(connection, args.session_id)
+                show_session(connection, args.session_id, args.exclude_session)
     except (OSError, sqlite3.Error, ValueError) as error:
         print(f"Error: {error}", file=sys.stderr)
         return 1
