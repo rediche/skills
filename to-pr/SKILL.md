@@ -20,7 +20,7 @@ When the user asks to turn agreed subtasks into a PR:
 
 ### 1) Preconditions
 - If no agreed subtasks exist, stop and instruct the user to run `to-subtasks` first.
-- If the working tree is dirty, stop and list the dirty files.
+- Run `git status --short` to check the working tree. If it prints any files, stop and list the dirty files.
 - If the user explicitly says to continue despite a dirty tree, ignore unrelated dirty files and proceed without modifying or reverting them.
 - Determine the base branch: use the current branch by default, or the user-specified base branch if provided.
 
