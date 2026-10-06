@@ -54,11 +54,40 @@ For each agreed subtask, in order:
 
 ## PR description
 
-Include these sections in the PR body:
+Use this format for the PR body. Keep prose brief and use the project's domain language:
 
-- Goal: what the PR is meant to achieve.
-- Implemented: concise summary of completed subtasks.
-- Manual QA: practical step-by-step checks written in the style of `qa`.
+```md
+## Summary
+
+<diagram, diff sketch, or tree that makes the key change clear>
+
+## Evidence
+
+- **Before:** <screenshot, output, or failing test>
+- **After:** <screenshot, output, or passing test>
+- **Manual QA:** <practical step-by-step checks, when hands-on verification is useful>
+
+## Merge Danger
+
+**Door:** <one-way or two-way>
+
+<Brief explanation, if useful>
+
+**Blast Radius:** <one-word description>
+
+<Potential impact of merging, if useful>
+```
+
+Choose the smallest representation that explains the change:
+
+- Pseudocode for logic or algorithms.
+- A call tree for runtime control flow.
+- A component tree for UI structure.
+- A shallow file tree for file responsibility or broad refactors.
+- Mermaid for interactions or data flow.
+- A focused diff sketch when the key point is what changed.
+
+Use visuals only when they help explain the change. Include concrete before-and-after evidence; prefer screenshots for visual changes and test or command output for behavior changes. Write manual QA steps in the style of `qa` when hands-on verification is useful.
 
 ## Output rules
 
