@@ -21,6 +21,7 @@ Then run the setup flow in your agent (if prompted) and use the installed skills
 - [`do-subtasks`](./do-subtasks/SKILL.md): Executes exactly one approved subtask at a time, then returns a conventional commit message suggestion for human review and commit.
 - [`to-pr`](./to-pr/SKILL.md): Implements agreed subtasks into a new branch, commits each subtask, pushes when complete, and opens a GitHub PR.
 - [`qa`](./qa/SKILL.md): Generates a practical QA checklist from conversation goals.
+- [`retro`](./retro/SKILL.md): Reviews OpenCode session history and proposes evidence-based improvements to the AI setup.
 
 ## Recommended workflow
 
