@@ -41,8 +41,9 @@ For each agreed subtask, in order:
 1. Implement only the current subtask.
 2. Run the relevant tests or checks for that subtask.
 3. Treat the subtask as incomplete until tests pass.
-4. Commit only the changes for that subtask.
-5. Use a conventional commit message with no scope and no body: `<type>: <short description>`.
+4. Stage only the changes for that subtask, then run `git diff --cached --check` and `git diff --cached --name-only` to verify the staged changes.
+5. Commit only the verified changes for that subtask.
+6. Use a conventional commit message with no scope and no body: `<type>: <short description>`.
 
 ### 5) Push and PR
 - After all subtasks are committed and the full relevant test suite passes, push the branch.
