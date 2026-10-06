@@ -22,7 +22,7 @@ When the user asks to turn agreed subtasks into a PR:
 - If no agreed subtasks exist, stop and instruct the user to run `to-subtasks` first.
 - Run `git status --short` to check the working tree. If it prints any files, stop and list the dirty files.
 - If the user explicitly says to continue despite a dirty tree, ignore unrelated dirty files and proceed without modifying or reverting them.
-- Determine the base branch: use the current branch by default, or the user-specified base branch if provided.
+- Determine the base branch with `git branch --show-current`, unless the user specifies another base branch.
 
 ### 2) Do-subtasks routing
 - If `do-subtasks` has not already run for these subtasks, automatically enter its subtask execution model without asking the user.
@@ -30,7 +30,7 @@ When the user asks to turn agreed subtasks into a PR:
 - Continue through all agreed subtasks, but keep each commit limited to the current subtask.
 
 ### 3) Branch setup
-- Create a new branch from the base branch before implementation.
+- Create the work branch from the base branch with `git switch -c <work-branch> <base-branch>` before implementation.
 - Infer the branch prefix from the goal and work type, using conventional prefixes such as `feat/`, `fix/`, `chore/`, `ci/`, `docs/`, `refactor/`, or `test/`.
 - Infer a short kebab-case branch name from the project goal.
 - Do not push the branch until all subtasks are complete and tests pass.
