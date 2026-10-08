@@ -74,10 +74,15 @@ Use this format for the PR body. Keep prose brief and use the project's domain l
 
 <Brief explanation, if useful>
 
-**Blast Radius:** <one-word description>
-
-<Potential impact of merging, if useful>
+**Blast Radius:** <one-word label>
 ```
+
+Choose exactly one blast-radius label for the PR, with no accompanying description. Base it on the widest plausible impact if the change fails after merging, not on diff size or likelihood of failure:
+
+- **Local** — one isolated component or workflow.
+- **Narrow** — a feature or subset of users.
+- **Broad** — a shared service, many workflows, or most users.
+- **Systemic** — core infrastructure, data integrity, security, or the whole application.
 
 Choose the smallest representation that explains the change:
 
