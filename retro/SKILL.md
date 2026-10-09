@@ -1,6 +1,8 @@
 ---
 name: retro
 description: Review OpenCode coding-session history and propose evidence-based improvements to the AI setup. Use when the user asks for a retrospective, retro, or ways to improve future agent sessions.
+metadata:
+  opencode/autoinvoke: false
 ---
 
 # Retro

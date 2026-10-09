@@ -1,6 +1,8 @@
 ---
 name: changelog
 description: Generate a concise, user-facing changelog from meaningful changes in the current repository and branch. Use when the user asks for a changelog, release notes, recent changes, or a summary of work over a date range or contributor scope.
+metadata:
+  opencode/autoinvoke: false
 ---
 
 # Changelog

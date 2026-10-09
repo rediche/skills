@@ -1,6 +1,8 @@
 ---
 name: audit-project-rules
 description: Audit the application for inconsistencies with its Laravel Boost and project rules. Use when asked to find, audit, or identify a rule violation or inconsistency in the codebase.
+metadata:
+  opencode/autoinvoke: false
 ---
 
 # Audit Project Rules

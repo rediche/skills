@@ -1,6 +1,8 @@
 ---
 name: to-pr
 description: Implements agreed subtasks into a new branch, commits each subtask, pushes when complete, and opens a GitHub PR. Use when subtasks from to-subtasks should be implemented end-to-end as a pull request, or when the user mentions to-pr, PR automation, branch-to-PR workflow, or implementing all subtasks into a GitHub pull request.
+metadata:
+  opencode/autoinvoke: false
 ---
 
 # To PR
