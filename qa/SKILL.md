@@ -1,6 +1,8 @@
 ---
 name: qa
 description: Generates a practical QA checklist from the current conversation and goals. Use when the user asks for QA tasks, test checklists, validation steps, or simple step-by-step testing guidance.
+metadata:
+  opencode/autoinvoke: false
 ---
 
 # QA
