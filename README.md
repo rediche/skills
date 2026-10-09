@@ -22,6 +22,8 @@ Then run the setup flow in your agent (if prompted) and use the installed skills
 - [`to-pr`](./to-pr/SKILL.md): Implements agreed subtasks into a new branch, commits each subtask, pushes when complete, and opens a GitHub PR.
 - [`qa`](./qa/SKILL.md): Generates a practical QA checklist from conversation goals.
 - [`retro`](./retro/SKILL.md): Reviews OpenCode session history and proposes evidence-based improvements to the AI setup.
+- [`changelog`](./changelog/SKILL.md): Generates a concise, user-facing changelog from meaningful repository changes.
+- [`audit-project-rules`](./audit-project-rules/SKILL.md): Audits application code for inconsistencies with Laravel Boost and project rules.
 
 ## Recommended workflow
 
