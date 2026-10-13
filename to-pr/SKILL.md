@@ -49,8 +49,10 @@ For each agreed subtask, in order:
 
 ### 5) Push and PR
 - After all subtasks are committed and the full relevant test suite passes, push the work branch with `git push --set-upstream origin <work-branch>`.
-- Create the PR with `gh pr create --base <base-branch> --head <work-branch>` and include the project-specific title and body.
-- After creation, run `gh pr view --json url,baseRefName,headRefName` to verify the PR target and retrieve its URL.
+- Before creating the PR, get the authenticated GitHub CLI user's login with `gh api user --jq '.login'`. Assign the PR to that user by default; use another assignee if the user specifies one.
+- Check available repository labels with `gh label list --limit 1000 --json name,description`. Choose the existing label or labels that best match the changes, using their descriptions when available. Do not create or guess labels. If no available label is appropriate, ask the user whether to proceed without a label or use another label before creating the PR.
+- Create the PR with `gh pr create --base <base-branch> --head <work-branch> --assignee <login> --label <label> [--label <another-label> ...]` and include the project-specific title and body. Replace `<login>` with the authenticated user's login unless the user specified another assignee, and include one `--label` flag for each selected label.
+- After creation, run `gh pr view --json url,baseRefName,headRefName,assignees,labels` to verify the PR target, assignee, and labels, and retrieve its URL.
 - Use a human-readable PR title based on the project goal, such as `Add comments to blog posts`.
 - Do not use conventional commit style for the PR title.
 - If the PR resolves an open GitHub issue, include a closing keyword in the PR body (for example, `Closes #123`) so the issue closes automatically when the PR is merged.
