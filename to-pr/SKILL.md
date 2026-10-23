@@ -81,12 +81,18 @@ Use this format for the PR body. Keep prose brief and use the project's domain l
 **Blast Radius:** <one-word label>
 ```
 
-Choose exactly one blast-radius label for the PR, with no accompanying description. Base it on the widest plausible impact if the change fails after merging, not on diff size or likelihood of failure:
+Choose exactly one blast-radius label for the PR, with no accompanying description in the PR field. Classify the credible failure boundary of the actual changes relative to the PR base:
 
-- **Local** — one isolated component or workflow.
-- **Narrow** — a feature or subset of users.
-- **Broad** — a shared service, many workflows, or most users.
-- **Systemic** — core infrastructure, data integrity, security, or the whole application.
+- **Local** — failure stays within one component, action, endpoint, or isolated workflow.
+- **Narrow** — failure affects one feature or a bounded set of related workflows.
+- **Broad** — changed shared behavior propagates failure across multiple distinct features or workflows.
+- **Systemic** — failure compromises application-wide operation, cross-cutting security boundaries, or the integrity of shared persistent data.
+
+Identify the changed behavior, its consumers, and where a regression stops. Inspect direct consumers when necessary. Require concrete propagation paths, not speculative chains of unrelated failures. Before selecting Broad or Systemic, identify the affected distinct workflows or cross-cutting boundary and explain the causal link. Missing evidence means uncertainty, not automatic escalation.
+
+File count, directory, shared-code status, and user count do not independently determine the label. Keep impact extent separate from severity, likelihood, and reversibility. Passing tests do not shrink blast radius.
+
+Calibration examples: isolated button styling used by everyone = Local; feature-specific calculation = Narrow; shared URL generation breaking editor, checkout, and exports = Broad; tenant isolation bypass = Systemic.
 
 Choose the smallest representation that explains the change:
 
@@ -103,6 +109,7 @@ Use visuals only when they help explain the change. Include concrete before-and-
 
 - Return the GitHub PR URL when finished.
 - Include a concise recap of implemented subtasks.
+- Include a brief blast-radius classification rationale in the completion recap, not in the label-only PR field. State any uncertainty.
 - If blocked, explain the blocker and the exact next action needed.
 
 ## Guardrails
