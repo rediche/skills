@@ -76,10 +76,14 @@ Use this format for the PR body. Keep prose brief and use the project's domain l
 
 **Door:** <one-way or two-way>
 
-<Brief explanation, if useful>
-
 **Blast Radius:** <one-word label>
 ```
+
+Classify Door by whether merging and deploying the PR is reversible:
+- **Two-way:** reverting the code or deployment restores previous behavior.
+- **One-way:** merging or deploying causes effects a revert cannot undo, such as irreversible data changes.
+
+An explicitly invoked destructive operation does not by itself make the PR one-way.
 
 Choose exactly one blast-radius label for the PR, with no accompanying description in the PR field. Classify the credible failure boundary of the actual changes relative to the PR base:
 
