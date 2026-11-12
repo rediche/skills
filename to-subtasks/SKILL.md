@@ -55,17 +55,19 @@ Create subtasks that are:
 - Reviewable: each step is scoped for clear implementation and validation.
 - Traceable: each subtask maps back to one or more conversation decisions.
 
-### 4) Test pairing (conditional)
+### 4) Validation pairing (conditional)
+
 If testing is requested or agreed:
-- Attach test updates to each implementation subtask, not as one final bulk step.
-- Specify test type per subtask (unit/feature/integration/e2e as appropriate).
-- Define acceptance checks per subtask.
-- Running existing tests is a validation check, not a separate subtask.
-- If a full-suite run is required, attach it to the final implementation subtask's validation checks.
-- Never append a standalone testing, validation, or review subtask.
+- Test intended behavior and required contracts, not implementation details.
+- Add or update tests only where existing coverage is insufficient.
+- Identify the relevant existing or proposed tests, their type, and the behavior they protect.
+- Include test commands and acceptance checks in each relevant implementation subtask.
+- If required, include a full-suite run in the final implementation subtask.
+- Never create a standalone testing, validation, or review subtask.
 
 If testing is explicitly not desired:
-- Note that in assumptions and proceed without test subtasks.
+- Record that preference as an assumption in the relevant subtask.
+- Do not create test subtasks.
 
 ### 5) Human-ready presentation
 Present subtasks as a structured numbered list only.
