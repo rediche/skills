@@ -13,7 +13,18 @@ When the user asks to move from discussion to execution planning:
 2. Extract decisions, constraints, assumptions, and open questions.
 3. Resolve implementation-relevant uncertainties, then produce code-changing subtasks that can be implemented one by one.
 4. If tests are agreed upon, pair test work with each relevant subtask.
-5. Present the subtasks to the human for confirmation before execution.
+5. Present the subtasks to the human for confirmation before execution, unless the autonomous handoff below applies.
+
+## Autonomous handoff
+
+- Apply this exception only within an explicitly user-invoked `auto-complete-task` workflow.
+- Investigate factual uncertainties before planning.
+- Use evidence-backed decisions and record non-blocking assumptions.
+- Ask the user only when a blocker cannot be resolved safely from the available evidence.
+- Return the numbered subtask list to the coordinator without requesting confirmation.
+- Treat these subtasks as authorized for the coordinator's handoff to `to-pr`.
+- Do not implement changes within `to-subtasks`.
+- Preserve readiness checks and higher-priority restrictions.
 
 ## Workflow
 
@@ -26,7 +37,7 @@ When the user asks to move from discussion to execution planning:
 ### 2) Readiness gate
 - Resolve implementation-relevant uncertainties before generating subtasks.
 - Investigate factual questions through available code, documentation, and conversation context.
-- Ask the user about unresolved requirements or tradeoffs. Recommend a grill-me session when substantial decisions remain.
+- Ask the user about unresolved requirements or tradeoffs unless the autonomous handoff applies. Recommend a grill-me session when substantial decisions remain outside that workflow.
 - A completed grill-me session does not bypass this gate if new uncertainties appear.
 - Do not turn investigation, clarification, or decision-making into subtasks.
 - Generate subtasks only when the intended changes and their prerequisites are clear.
